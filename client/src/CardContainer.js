@@ -1,11 +1,14 @@
 import React from 'react';
-import { DragDropContext, Droppable, Draggable } from '@hello-pangea/dnd';
+import { Droppable } from '@hello-pangea/dnd';
 import Card from './Card';
 import './CardContainer.css';
 
 function CardContainer({ id, header, cards }) {
-    const cardItems = cards.map(card=> 
+    const cardItems = cards.map((card, index) => 
     <Card 
+      key={`${card.set_name}-${card.collection_number}-${index}`}
+      id={`${card.set_name}-${card.collection_number}-${index}`}
+      index={index}
       name={card.name}
       color={card.color}
       cmc={card.cmc}
@@ -16,9 +19,19 @@ function CardContainer({ id, header, cards }) {
   return (
     <div className={id}>
       <h3>{header}</h3>
-      <div className='card-container'>
-        {cardItems}
-      </div>
+      {/* <Droppable droppableId={id}>
+        {(provided) => (
+          <div
+            className='card-container'
+            ref={provided.innerRef}
+            {...provided.droppableProps}
+          >
+            {cardItems}
+            {provided.placeholder}
+          </div>
+        )}
+      </Droppable> */}
+      {cardItems}
     </div>
   );
 }
