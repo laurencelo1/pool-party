@@ -2,76 +2,46 @@ import React, { useState } from 'react';
 // import { DragDropContext } from 'react-beautiful-dnd';
 import { DragDropContext } from '@hello-pangea/dnd';
 import CardContainer from './CardContainer';
+import Card from './Card';
 import './App.css';
 
+const cards = [
+    {
+      "name": "Sire of Seven Deaths",
+      "large_img": "https://cards.scryfall.io/large/front/8/d/8d8432a7-1c8a-4cfb-947c-ecf9791063eb.jpg?1730657490",
+      "mana_cost": "{7}",
+      "cmc": 7,
+      "rarity": "mythic",
+      "color": [],
+      "color_identity": [],
+      "type_line": "Creature — Eldrazi",
+      "collection_number": "1",
+    }, {
+      "name": "Camera Launcher",
+      "large_img": "https://cards.scryfall.io/large/front/9/6/968651db-92fb-46cd-acda-9e097668b7c9.jpg?1738356791",
+      "mana_cost": "{3}",
+      "cmc": 3,
+      "color": [],
+      "color_identity": [],
+      "type_line": "Artifact Creature — Construct",
+      "collection_number": "232",
+
+  }
+]
+
+
 function App() {
-  // Test card including all properties needed by your Card component
-  const testCard = {
-    id: "1",
-    name: "Sire of Seven Deaths",
-    color: [],
-    cmc: 7,
-    localImage: "https://cards.scryfall.io/png/front/8/d/8d8432a7-1c8a-4cfb-947c-ecf9791063eb.png?1730657490"
-  };
-  
-  const [mainboardCards, setMainboardCards] = useState([testCard]);
-  const [sideboardCards, setSideboardCards] = useState([testCard]);
+  const cardItems = cards.map(card=> 
+    <Card 
+      name={card.name}
+      color={card.color}
+      cmc={card.cmc}
+      imageUrl={card.large_img}
+      cNum={card.collection_number}
+    />
+  )
 
-  const handleDragEnd = (result) => {
-    const { source, destination } = result;
-    
-    // Skip if dropped outside or in same position
-    if (!destination || 
-        (source.droppableId === destination.droppableId && 
-         source.index === destination.index)) {
-      return;
-    }
-    
-    // Get source and destination arrays
-    const sourceCards = source.droppableId === "mainboard" ? 
-      [...mainboardCards] : [...sideboardCards];
-    const destCards = destination.droppableId === "mainboard" ? 
-      [...mainboardCards] : [...sideboardCards];
-    
-    // Remove from source
-    const [movedCard] = sourceCards.splice(source.index, 1);
-    
-    // Add to destination
-    destCards.splice(destination.index, 0, movedCard);
-    
-    // Update state
-    if (source.droppableId === "mainboard") {
-      setMainboardCards(sourceCards);
-    } else {
-      setSideboardCards(sourceCards);
-    }
-    
-    if (destination.droppableId === "mainboard") {
-      setMainboardCards(destCards);
-    } else {
-      setSideboardCards(destCards);
-    }
-  };
-
-  return (
-    <div className="app">
-      <h1>Card Dragger</h1>
-      <DragDropContext onDragEnd={handleDragEnd}>
-        <div className="containers-wrapper">
-          <CardContainer
-            id="mainboard"
-            header="Main Board"
-            cards={mainboardCards}
-          />
-          <CardContainer
-            id="sideboard"
-            header="Side Board"
-            cards={sideboardCards}
-          />
-        </div>
-      </DragDropContext>
-    </div>
-  );
+  return cardItems;
 }
 
 export default App;
