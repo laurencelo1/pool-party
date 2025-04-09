@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { DragDropContext } from '@hello-pangea/dnd';
-import './App.css';
 import PoolBuilder from './PoolBuilder';
 
 const SIDE = [
