@@ -19,7 +19,7 @@ function CardContainer({ id, header, cards }) {
   return (
     <div className={id}>
       <h3>{header}</h3>
-      {/* <Droppable droppableId={id}>
+      <Droppable droppableId={id}>
         {(provided) => (
           <div
             className='card-container'
@@ -30,8 +30,7 @@ function CardContainer({ id, header, cards }) {
             {provided.placeholder}
           </div>
         )}
-      </Droppable> */}
-      {cardItems}
+      </Droppable>
     </div>
   );
 }

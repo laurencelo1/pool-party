@@ -42,19 +42,14 @@ const MAIN = [{
 
 export default function App() {
   const onDragEnd = (result) => {
-    if (!result.destination) return;
-
     console.log(result);
   };
 
   return (
-    // <div className="app">
-    //   <DragDropContext onDragEnd={onDragEnd}>
-    //     <PoolBuilder sideboard={SIDE} mainboard={MAIN} />
-    //   {/* </DragDropContext> */}
-    // </div>
-
-    <PoolBuilder sideboard={SIDE} mainboard={MAIN} />
-
+    <div className="app">
+      <DragDropContext onDragEnd={onDragEnd}>
+        <PoolBuilder sideboard={SIDE} mainboard={MAIN} />
+      </DragDropContext>
+    </div>
   );
 }
