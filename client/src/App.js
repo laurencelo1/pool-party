@@ -42,7 +42,8 @@ const MAIN = [{
 
 export default function App() {
   const onDragEnd = (result) => {
-    console.log(result);
+    console.log(`from ${result.source}`);
+    console.log(`to ${result.destination}`);
   };
 
   return (
