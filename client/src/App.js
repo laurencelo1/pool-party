@@ -61,6 +61,7 @@ export default function App() {
   const [mainboardCards, setMainboardCards] = useState(MAIN);
 
   const onDragEnd = (result) => {
+    console.log(result);
     const { source, destination } = result;
 
     if (!destination) {
