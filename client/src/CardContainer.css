@@ -3,5 +3,5 @@
     min-height: 250px;
     display: flex;
     flex-direction: column;
-    counter-reset: card-index;
+    counter-reset: card-index; /* card-index used in Card component */
 }
