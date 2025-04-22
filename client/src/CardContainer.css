@@ -1,4 +1,7 @@
 .card-container {
     border: 2px solid black;
     min-height: 250px;
+    display: flex;
+    flex-direction: column;
+    counter-reset: card-index;
 }
