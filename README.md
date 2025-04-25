@@ -6,4 +6,5 @@ TODO
 - [ ] Connect app to db
 - [ ] Post a build to db
 - [ ] Retrive a build from db
-- [ ]  Submit form that takes two arrays of cards from main and sideboard
+- [ ] Submit form that takes two arrays of cards from main and sideboard
+- [ ] Design DB Schema
