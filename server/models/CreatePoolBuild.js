@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-let schemaCourses = mongoose.Schema ({
+let schemaPool = mongoose.Schema ({
 	side: {
 		type: Array,
 		required: true,
