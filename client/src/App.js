@@ -2,6 +2,7 @@ import React, { useOptimistic } from 'react';
 import { useState } from 'react';
 import { DragDropContext } from '@hello-pangea/dnd';
 import PoolBuilder from './PoolBuilder';
+import { api } from './services/api';
 
 const SIDE = [
   {
@@ -59,6 +60,62 @@ const MAIN = [{
 export default function App() {
   const [sideboardCards, setSideboardCards] = useState(SIDE);
   const [mainboardCards, setMainboardCards] = useState(MAIN);
+  const [poolId, setPoolId] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+
+    // Load a pool by ID
+    const loadPool = async (id) => {
+      try {
+        setLoading(true);
+        const response = await api.getPoolById(id);
+        
+        if (response.success) {
+          setMainboardCards(response.data.mainboard);
+          setSideboardCards(response.data.sideboard);
+          setPoolId(id);
+        } else {
+          setError(response.message);
+        }
+      } catch (err) {
+        setError('Failed to load pool');
+      } finally {
+        setLoading(false);
+      }
+    };
+  
+    // Save current pool
+    const savePool = async () => {
+      try {
+        setLoading(true);
+        const poolData = {
+          mainboard: mainboardCards,
+          sideboard: sideboardCards,
+          set: 'FDN', // Example set code
+          user: 'example_user', // Replace with actual user
+        };
+  
+        let response;
+        if (poolId) {
+          // Update existing pool
+          response = await api.updatePool(poolId, poolData);
+        } else {
+          // Create new pool
+          response = await api.createPool(poolData);
+          if (response.success) {
+            setPoolId(response.data._id);
+          }
+        }
+  
+        if (!response.success) {
+          setError(response.message);
+        }
+      } catch (err) {
+        setError('Failed to save pool');
+      } finally {
+        setLoading(false);
+      }
+    };
 
   const onDragEnd = (result) => {
     console.log(result);
@@ -122,9 +179,15 @@ export default function App() {
 
   return (
     <div className="app">
-      <DragDropContext onDragEnd={onDragEnd}>
-        <PoolBuilder sideboard={sideboardCards} mainboard={mainboardCards} />
-      </DragDropContext>
+      <div className="actions">  
+        <button onClick={savePool} disabled={loading}>
+          {loading ? 'Saving...' : 'Save Pool'}
+        </button>
+        {error && <div className="error">{error}</div>}
+      </div>
+        <DragDropContext onDragEnd={onDragEnd}>
+          <PoolBuilder sideboard={sideboardCards} mainboard={mainboardCards} />
+        </DragDropContext>
     </div>
   );
 }
