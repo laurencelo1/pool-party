@@ -27,6 +27,7 @@ export const api = {
 
   // Create a new pool
   createPool: async (poolData) => {
+    console.log(`Sending request to: ${API_BASE_URL}/pool`);
     try {
       const response = await fetch(`${API_BASE_URL}/pool`, {
         method: 'POST',

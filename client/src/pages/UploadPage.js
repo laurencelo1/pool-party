@@ -1,4 +1,3 @@
-// client/src/pages/UploadPage.js
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { api } from '../services/api';
@@ -58,6 +57,7 @@ function UploadPage() {
   };
 
   const handleSubmit = async (e) => {
+    console.log("submitting");
     e.preventDefault();
     
     if (!poolText.trim()) {
@@ -70,6 +70,7 @@ function UploadPage() {
       
       // Parse the pool text
       const cards = parsePoolText(poolText, setCode);
+      console.log(cards);
       
       if (cards.length === 0) {
         setError('No valid cards found in the input');
@@ -89,6 +90,7 @@ function UploadPage() {
         // Navigate to build page to edit the pool
         navigate(`/build/${response.data._id}`);
       } else {
+        console.log("api response", response);
         setError(response.message);
       }
     } catch (err) {
