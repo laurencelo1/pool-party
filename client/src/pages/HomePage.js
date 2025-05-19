@@ -36,6 +36,16 @@ function HomePage() {
         </ul>
       </nav>
       
+      <div className="featured-section">
+        <h2>Featured Set</h2>
+        <div className="featured-set">
+          <Link to="/set/TDM" className="set-button">
+            Browse TDM Cards
+          </Link>
+          <p>View all cards from the TDM set in our gallery view.</p>
+        </div>
+      </div>
+      
       <h2>Recent Pools</h2>
       {loading ? (
         <p>Loading pools...</p>

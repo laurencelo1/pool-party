@@ -18,9 +18,6 @@ function Layout({ children }) {
     };
     
     setCurrentDate(today.toLocaleDateString('en-US', options));
-    
-    // You could also use a simpler format like:
-    // setCurrentDate(`${today.getMonth() + 1}/${today.getDate()}/${today.getFullYear()}`);
   }, []);
 
   return (
@@ -29,9 +26,7 @@ function Layout({ children }) {
         <div className="logo-container">
           <Link to="/">
             <img src={logo} alt="Pool Party Logo" />
-            {/* Header should show application name (stored in configuration file) */}
             <h1>{appConfig.appName}</h1>
-
           </Link>
         </div>
         <nav className="main-nav">
@@ -39,6 +34,7 @@ function Layout({ children }) {
             <li><Link to="/upload">Upload</Link></li>
             <li><Link to="/build">Build</Link></li>
             <li><Link to="/daily">Pool of the Day</Link></li>
+            <li><Link to="/set/TDM">TDM Cards</Link></li>
           </ul>
         </nav>
       </header>
