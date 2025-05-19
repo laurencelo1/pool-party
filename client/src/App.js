@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { DragDropContext } from '@hello-pangea/dnd';
 import PoolBuilder from './PoolBuilder';
 import { api } from './services/api';
+import 'App.css';
 
 const SIDE = [
   {

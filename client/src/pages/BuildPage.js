@@ -4,6 +4,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { DragDropContext } from '@hello-pangea/dnd';
 import PoolBuilder from '../PoolBuilder';
 import { api } from '../services/api';
+import Layout from '../Layout';
 
 function BuildPage() {
   const { id } = useParams(); // Get pool ID from URL if it exists
@@ -85,6 +86,7 @@ function BuildPage() {
   }
 
   return (
+    <Layout>
     <div>
       <h1>Build Pool</h1>
       
@@ -108,6 +110,7 @@ function BuildPage() {
         <PoolBuilder sideboard={sideboardCards} mainboard={mainboardCards} />
       </DragDropContext>
     </div>
+    </Layout>
   );
 }
 

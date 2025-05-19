@@ -1,9 +1,11 @@
 // client/src/pages/AboutPage.js
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Layout from '../Layout';
 
 function AboutPage() {
   return (
+    <Layout>
     <div>
       <h1>About Pool Party</h1>
       
@@ -50,6 +52,7 @@ function AboutPage() {
         <Link to="/">Return to Home</Link>
       </div>
     </div>
+    </Layout>
   );
 }
 

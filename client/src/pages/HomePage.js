@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { api } from '../services/api';
 import { Link } from 'react-router-dom';
+import Layout from '../Layout';
 
 function HomePage() {
   const [pools, setPools] = useState([]);
@@ -24,6 +25,7 @@ function HomePage() {
   }, []);
 
   return (
+    <Layout>
     <div>
       <h1>Pool Party</h1>
       <nav>
@@ -50,6 +52,7 @@ function HomePage() {
         </div>
       )}
     </div>
+    </Layout>
   );
 }
 

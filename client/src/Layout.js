@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './Layout.css';
+import appConfig from './config/appConfig';
+import logo from './assets/logo.png'; // Assuming you have a logo image
 
 function Layout({ children }) {
   const [currentDate, setCurrentDate] = useState('');
@@ -26,8 +28,10 @@ function Layout({ children }) {
       <header className="app-header">
         <div className="logo-container">
           <Link to="/">
-            <img src="/logo.png" alt="Pool Party Logo" />
-            <h1>Pool Party</h1>
+            <img src={logo} alt="Pool Party Logo" />
+            {/* Header should show application name (stored in configuration file) */}
+            <h1>{appConfig.appName}</h1>
+
           </Link>
         </div>
         <nav className="main-nav">
