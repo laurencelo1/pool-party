@@ -10,6 +10,20 @@ export const getPools = async (req, res) => {
     }
 }
 
+export const getPoolById = async (req, res) => {
+    try {
+        const { id } = req.params;
+        const pool = await Pool.findById(id);
+        if (!pool) {
+            return res.status(404).json({ success: false, message: 'Pool not found' });
+        }
+        res.status(200).json({ success: true, data: pool });
+    } catch (error) {
+        console.error('Error fetching pool' + error);
+        res.status(500).json({ success: false, message: 'Error fetching pool' });
+    }
+}
+
 export const postPool = async (req, res) => {
     const pool = req.body;
     console.log(req.body);
