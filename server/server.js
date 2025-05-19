@@ -8,6 +8,8 @@ import dotenv from 'dotenv';
 import Pool from "./models/pool.model.js";
 
 import poolRoutes from "./routes/pool.route.js";
+import dailyRoutes from "./routes/daily.route.js";
+
 
 // dotenv.config();
 
@@ -23,6 +25,8 @@ const HOST = 'localhost';
 app.use(cors());
 app.use(express.json());
 app.use("/pool", poolRoutes);
+app.use("/daily", dailyRoutes);
+
 
 app.listen(PORT, HOST, () => {
     connectDB();

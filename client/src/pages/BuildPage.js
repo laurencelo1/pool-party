@@ -77,8 +77,63 @@ function BuildPage() {
   };
 
   const onDragEnd = (result) => {
-    // Your existing drag and drop logic
-    // ...
+    console.log(result);
+    const { source, destination } = result;
+
+    if (!destination) {
+      console.log("destination is null!");
+      return;
+    }
+    if (source.droppableId === destination.droppableId && source.index === destination.index) {
+      console.log("drag drop in place!");
+      return;
+    }
+    
+    let movingCard;
+    // find moving card
+    if (source.droppableId === "sideboard") {
+      movingCard = sideboardCards[source.index];
+    } else if (source.droppableId === "mainboard") {
+      movingCard = mainboardCards[source.index];
+    }
+
+    // moving within
+    if (source.droppableId === destination.droppableId) {
+      if (source.droppableId === "sideboard") {
+        let newSideboard = Array.from(sideboardCards);
+        newSideboard.splice(source.index, 1);
+        newSideboard.splice(destination.index, 0, movingCard);
+        setSideboardCards(newSideboard);
+      } else if (source.droppableId === "mainboard") {
+        let newMainboard = Array.from(mainboardCards);
+        newMainboard.splice(source.index, 1);
+        newMainboard.splice(destination.index, 0, movingCard);
+        setMainboardCards(newMainboard);
+      }
+    } 
+    // moving to diff
+    else {
+      // side to main
+      if (source.droppableId === "sideboard") {
+        let newSideboard = Array.from(sideboardCards);
+        newSideboard.splice(source.index, 1);
+        setSideboardCards(newSideboard);
+
+        let newMainboard = Array.from(mainboardCards);
+        newMainboard.splice(destination.index, 0, movingCard);
+        setMainboardCards(newMainboard);
+      } 
+      // main to side
+      else {
+        let newMainboard = Array.from(mainboardCards);
+        newMainboard.splice(source.index, 1);
+        setMainboardCards(newMainboard);
+
+        let newSideboard = Array.from(sideboardCards);
+        newSideboard.splice(destination.index, 0, movingCard);
+        setSideboardCards(newSideboard);
+      }
+    }
   };
 
   if (loading && !mainboardCards.length) {

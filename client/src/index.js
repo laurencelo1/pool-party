@@ -5,7 +5,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import HomePage from './pages/HomePage';
 import UploadPage from './pages/UploadPage';
 import BuildPage from './pages/BuildPage';
-// import DailyPage from './pages/DailyPage';
+import DailyPool from './pages/DailyPool';
 import AboutPage from './pages/AboutPage';
 import reportWebVitals from './reportWebVitals';
 
@@ -18,7 +18,7 @@ root.render(
         <Route path="/upload" element={<UploadPage />} />
         <Route path="/build" element={<BuildPage />} />
         <Route path="/build/:id" element={<BuildPage />} />
-        {/* <Route path="/daily" element={<DailyPage />} /> */}
+        <Route path="/daily" element={<DailyPool />} />
         <Route path="/about" element={<AboutPage />} />
       </Routes>
     </BrowserRouter>
