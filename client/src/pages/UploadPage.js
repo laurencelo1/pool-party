@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { api } from '../services/api';
 import Layout from '../Layout';
+import { initializeCardDatabase, getCardByName, createPlaceholderCard } from '../utils/cardLookup';
 
 function UploadPage() {
   const navigate = useNavigate();
@@ -9,6 +10,11 @@ function UploadPage() {
   const [setCode, setSetCode] = useState('TDM');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+
+// Initialize card database on component mount
+  useEffect(() => {
+    initializeCardDatabase(['TDM']);
+  }, []);
 
   // Parser function for "1 Card Name" format
   const parsePoolText = (text, defaultSet) => {
@@ -28,28 +34,15 @@ function UploadPage() {
         const quantity = parseInt(quantityStr, 10);
         
         for (let i = 0; i < quantity; i++) {
-          cards.push({
-            name: cardName.trim(),
-            set_name: defaultSet,
-            collection_number: `unknown-${Math.random().toString(36).substr(2, 9)}`,
-            large_img: `https://cards.scryfall.io/large/front/placeholder.jpg`,
-            cmc: 0,
-            color: [],
-          });
+            const card = getCardByName(cardName.trim(), defaultSet) || 
+              createPlaceholderCard(cardName.trim(), defaultSet);
+            cards.push(card);
         }
       } else {
         // If no quantity specified, assume quantity of 1
         const cardName = line.trim();
-        if (cardName) {
-          cards.push({
-            name: cardName,
-            set_name: defaultSet,
-            collection_number: `unknown-${Math.random().toString(36).substr(2, 9)}`,
-            large_img: `https://cards.scryfall.io/large/front/placeholder.jpg`,
-            cmc: 0,
-            color: [],
-          });
-        }
+        const card = getCardByName(cardName, defaultSet) || createPlaceholderCard(cardName, defaultSet);
+        cards.push(card);
       }
     });
 
@@ -112,9 +105,9 @@ function UploadPage() {
           <p>Enter your cards in the format: "1 Card Name" (one per line)</p>
           <p>Example:</p>
           <pre>
-            1 Sire of Seven Deaths
-            2 Mountain
-            1 Fear of Isolation
+            1 Wild Ride<br/>
+            2 Marang River Regent<br/>
+            1 Ugin, Eye of the Storms
           </pre>
         </div>
         
