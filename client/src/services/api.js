@@ -75,4 +75,16 @@ export const api = {
       throw error;
     }
   },
+  
+  // Get all cards from a set
+  getSetCards: async (setCode) => {
+    try {
+      const response = await fetch(`${API_BASE_URL}/set/${setCode}`);
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      console.error(`Error fetching cards for set ${setCode}:`, error);
+      throw error;
+    }
+  }
 };

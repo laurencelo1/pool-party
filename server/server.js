@@ -6,13 +6,9 @@ import { dirname, join } from 'path';
 import { connectDB } from './config/db.js';
 import dotenv from 'dotenv';
 import Pool from "./models/pool.model.js";
-
 import poolRoutes from "./routes/pool.route.js";
 import dailyRoutes from "./routes/daily.route.js";
-
-
-// dotenv.config();
-
+import setRoutes from "./routes/set.route.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -26,11 +22,10 @@ app.use(cors());
 app.use(express.json());
 app.use("/pool", poolRoutes);
 app.use("/daily", dailyRoutes);
-
+app.use("/set", setRoutes);
 
 app.listen(PORT, HOST, () => {
     connectDB();
     console.log(`Server running on port ${PORT}`);
 });
 // console.log(process.env.MONGO_URI);
-  
