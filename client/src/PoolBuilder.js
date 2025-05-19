@@ -8,6 +8,7 @@ function PoolBuilder({ sideboard, mainboard }) {
                 id="sideboard"
                 header="Sideboard"
                 cards={sideboard}
+                showColorSeparation={true}
             />
             <CardContainer
                 id="mainboard"
