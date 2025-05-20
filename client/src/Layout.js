@@ -35,7 +35,7 @@ function Layout({ children }) {
             <li><Link to="/build">Build</Link></li>
             <li><Link to="/daily">Pool of the Day</Link></li>
             <li><Link to="/search">Search Cards</Link></li>
-            <li><Link to="/set/TDM">TDM Cards</Link></li>
+            <li><Link to="/sets">Sets</Link></li>
           </ul>
         </nav>
       </header>
