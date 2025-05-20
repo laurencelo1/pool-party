@@ -1,13 +1,12 @@
-import React from "react";
-import { Draggable } from "@hello-pangea/dnd";
-import "./Card.css"
+import React from 'react';
+import { Draggable } from '@hello-pangea/dnd';
+import './Card.css';
 
 const Card = React.memo(function Card({ id, index, name, color, cmc, imageUrl, cNum }) {
     // console.log("Card ID:", id, "Index:", index);
 
-
     function handleClick() {
-    // 
+        //
     }
 
     return (
@@ -19,7 +18,7 @@ const Card = React.memo(function Card({ id, index, name, color, cmc, imageUrl, c
                     {...provided.dragHandleProps}
                     className={`card ${snapshot.isDragging ? 'is-dragging' : ''}`}
                 >
-                    <img 
+                    <img
                         className="card"
                         src={imageUrl}
                         onClick={handleClick}

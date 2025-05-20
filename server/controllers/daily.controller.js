@@ -1,6 +1,6 @@
-import DailyPool from "../models/daily.model.js";
-import Pool from "../models/pool.model.js";
-import mongoose from "mongoose";
+import DailyPool from '../models/daily.model.js';
+import Pool from '../models/pool.model.js';
+import mongoose from 'mongoose';
 
 export const getDailyPool = async (req, res) => {
     try {
@@ -11,8 +11,8 @@ export const getDailyPool = async (req, res) => {
         let dailyPool = await DailyPool.findOne({
             date: {
                 $gte: today,
-                $lt: new Date(today.getTime() + 24 * 60 * 60 * 1000)
-            }
+                $lt: new Date(today.getTime() + 24 * 60 * 60 * 1000),
+            },
         });
 
         // If no daily pool for today, get the most recent one
@@ -23,16 +23,16 @@ export const getDailyPool = async (req, res) => {
         if (!dailyPool) {
             return res.status(404).json({
                 success: false,
-                message: 'No daily pool found'
+                message: 'No daily pool found',
             });
         }
 
         const pool = await Pool.findById(dailyPool.poolId);
-        
+
         if (!pool) {
             return res.status(404).json({
                 success: false,
-                message: 'Pool referenced by daily pool not found'
+                message: 'Pool referenced by daily pool not found',
             });
         }
 
@@ -40,14 +40,14 @@ export const getDailyPool = async (req, res) => {
             success: true,
             data: {
                 dailyPool,
-                pool
-            }
+                pool,
+            },
         });
     } catch (error) {
         console.error('Error fetching daily pool:', error);
         res.status(500).json({
             success: false,
-            message: 'Error fetching daily pool'
+            message: 'Error fetching daily pool',
         });
     }
 };
@@ -60,7 +60,7 @@ export const setDailyPool = async (req, res) => {
         if (!poolId || !mongoose.Types.ObjectId.isValid(poolId)) {
             return res.status(400).json({
                 success: false,
-                message: 'Valid pool ID is required'
+                message: 'Valid pool ID is required',
             });
         }
 
@@ -69,7 +69,7 @@ export const setDailyPool = async (req, res) => {
         if (!pool) {
             return res.status(404).json({
                 success: false,
-                message: 'Pool not found'
+                message: 'Pool not found',
             });
         }
 
@@ -80,8 +80,8 @@ export const setDailyPool = async (req, res) => {
         let dailyPool = await DailyPool.findOne({
             date: {
                 $gte: today,
-                $lt: new Date(today.getTime() + 24 * 60 * 60 * 1000)
-            }
+                $lt: new Date(today.getTime() + 24 * 60 * 60 * 1000),
+            },
         });
 
         if (dailyPool) {
@@ -92,7 +92,7 @@ export const setDailyPool = async (req, res) => {
             // Create new daily pool
             dailyPool = new DailyPool({
                 poolId,
-                date: today
+                date: today,
             });
             await dailyPool.save();
         }
@@ -100,13 +100,13 @@ export const setDailyPool = async (req, res) => {
         res.status(200).json({
             success: true,
             message: 'Daily pool set successfully',
-            data: dailyPool
+            data: dailyPool,
         });
     } catch (error) {
         console.error('Error setting daily pool:', error);
         res.status(500).json({
             success: false,
-            message: 'Error setting daily pool'
+            message: 'Error setting daily pool',
         });
     }
 };

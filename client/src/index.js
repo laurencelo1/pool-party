@@ -14,21 +14,21 @@ import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/upload" element={<UploadPage />} />
-        <Route path="/build" element={<BuildPage />} />
-        <Route path="/build/:id" element={<BuildPage />} />
-        <Route path="/daily" element={<DailyPool />} />
-        <Route path="/set/:setCode" element={<SetPage />} />
-        <Route path="/sets" element={<SetsPage />} />
-        <Route path="/search" element={<SearchPage />} />
-        <Route path="/about" element={<AboutPage />} />
-      </Routes>
-    </BrowserRouter>
-  </React.StrictMode>
+    <React.StrictMode>
+        <BrowserRouter>
+            <Routes>
+                <Route path="/" element={<HomePage />} />
+                <Route path="/upload" element={<UploadPage />} />
+                <Route path="/build" element={<BuildPage />} />
+                <Route path="/build/:id" element={<BuildPage />} />
+                <Route path="/daily" element={<DailyPool />} />
+                <Route path="/set/:setCode" element={<SetPage />} />
+                <Route path="/sets" element={<SetsPage />} />
+                <Route path="/search" element={<SearchPage />} />
+                <Route path="/about" element={<AboutPage />} />
+            </Routes>
+        </BrowserRouter>
+    </React.StrictMode>
 );
 
 reportWebVitals();

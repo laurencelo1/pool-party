@@ -1,8 +1,8 @@
 .card-container-wrapper {
     margin-bottom: 30px;
-  }
-  
-  .card-container {
+}
+
+.card-container {
     border: 2px solid black;
     min-height: 250px;
     display: flex;
@@ -11,24 +11,24 @@
     background-color: #f0f0f0;
     padding: 10px;
     border-radius: 5px;
-  }
-  
-  .card-container h3 {
+}
+
+.card-container h3 {
     margin-top: 0;
     margin-bottom: 10px;
     color: #0066cc;
-  }
-  
-  /* Styling for color-separated containers */
-  .card-container.color-separated {
+}
+
+/* Styling for color-separated containers */
+.card-container.color-separated {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     gap: 5px;
     align-items: flex-start;
-  }
-  
-  .color-section {
+}
+
+.color-section {
     min-width: 150px;
     flex: 1;
     min-height: 200px;
@@ -36,53 +36,53 @@
     border-radius: 5px;
     padding: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  .color-section h4 {
+}
+
+.color-section h4 {
     margin-top: 0;
     margin-bottom: 10px;
     font-size: 14px;
     color: #333;
     border-bottom: 1px solid #ddd;
     padding-bottom: 5px;
-  }
-  
-  .color-cards {
+}
+
+.color-cards {
     display: flex;
     flex-direction: column;
-  }
-  
-  /* Color-specific styling */
-  .color-section:has(h4:contains("White")) {
+}
+
+/* Color-specific styling */
+.color-section:has(h4:contains('White')) {
     background-color: #f9f6f2;
-  }
-  
-  .color-section:has(h4:contains("Blue")) {
+}
+
+.color-section:has(h4:contains('Blue')) {
     background-color: #e9f2f9;
-  }
-  
-  .color-section:has(h4:contains("Black")) {
+}
+
+.color-section:has(h4:contains('Black')) {
     background-color: #e5e5e5;
-  }
-  
-  .color-section:has(h4:contains("Red")) {
+}
+
+.color-section:has(h4:contains('Red')) {
     background-color: #f9e9e9;
-  }
-  
-  .color-section:has(h4:contains("Green")) {
+}
+
+.color-section:has(h4:contains('Green')) {
     background-color: #e9f9e9;
-  }
-  
-  .color-section:has(h4:contains("Multicolor")) {
+}
+
+.color-section:has(h4:contains('Multicolor')) {
     background-color: #f9f9e0;
-  }
-  
-  .color-section:has(h4:contains("Colorless")) {
+}
+
+.color-section:has(h4:contains('Colorless')) {
     background-color: #f0f0f0;
-  }
-  
-  /* Make cards in the color containers stack nicely */
-  .color-cards .card {
+}
+
+/* Make cards in the color containers stack nicely */
+.color-cards .card {
     margin: 3px;
     box-sizing: border-box;
     width: 140px;
@@ -91,8 +91,8 @@
     margin-top: -150px; /* adjust for stacking */
     counter-increment: card-index;
     z-index: counter(card-index);
-  }
-  
-  .color-cards .card:first-child {
+}
+
+.color-cards .card:first-child {
     margin-top: 3px;
-  }
+}

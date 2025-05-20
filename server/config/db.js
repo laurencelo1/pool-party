@@ -1,15 +1,14 @@
-import mongoose from "mongoose";
+import mongoose from 'mongoose';
 
 export const connectDB = async () => {
-	try {
-    console.log(process.env.MONGO_URI);
-		const conn = await mongoose.connect(process.env.MONGO_URI);
-		console.log(`Database is connected: ${conn.host}:${conn.port} @ ${conn.name}`);
-	}
-	catch (error) {
-			console.log("Problem while connecting database" + error);
-			process.exit(1); //1 failure, 0 success
-}
+    try {
+        console.log(process.env.MONGO_URI);
+        const conn = await mongoose.connect(process.env.MONGO_URI);
+        console.log(`Database is connected: ${conn.host}:${conn.port} @ ${conn.name}`);
+    } catch (error) {
+        console.log('Problem while connecting database' + error);
+        process.exit(1); //1 failure, 0 success
+    }
 };
 // mongoose.connect(connString)
 // 	.then( //Callback functions
@@ -23,7 +22,7 @@ export const connectDB = async () => {
 // 				}, function(err) { //Error
 // 					console.log("Problem while closing database " + err);
 // 				}
-// 			)	
+// 			)
 // 		},
 // 		function(err) { //Error
 // 			console.log("Problem while connecting database " + err);

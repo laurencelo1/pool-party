@@ -1,21 +1,22 @@
 {
-  "name": "pool-party",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "type": "module",
-  "scripts": {
-    "": ""
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "fs": "^0.0.1-security",
-    "scryfall-sdk": "^5.0.3"
-  },
-  "devDependencies": {
-    "concurrently": "^9.1.2",
-    "nodemon": "^3.1.10"
-  }
+    "name": "pool-party",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "type": "module",
+    "scripts": {
+        "format": "prettier --write \"**/*.{js,jsx,json,css,md}\""
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "fs": "^0.0.1-security",
+        "scryfall-sdk": "^5.0.3"
+    },
+    "devDependencies": {
+        "concurrently": "^9.1.2",
+        "nodemon": "^3.1.10",
+        "prettier": "^3.5.3"
+    }
 }

@@ -1,5 +1,5 @@
 const appConfig = {
-    appName: "Pool Party",
-}
+    appName: 'Pool Party',
+};
 
 export default appConfig;

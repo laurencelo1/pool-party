@@ -1,12 +1,12 @@
 import express from 'express';
-import { 
-    getBuilds, 
+import {
+    getBuilds,
     getBuildsByPoolId,
     getBuildById,
     createBuild,
     updateBuild,
-    deleteBuild, 
-    initializeFromPool 
+    deleteBuild,
+    initializeFromPool,
 } from '../controllers/build.controller.js';
 
 const router = express.Router();

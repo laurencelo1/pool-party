@@ -10,13 +10,9 @@ function PoolBuilder({ sideboard, mainboard }) {
                 cards={sideboard}
                 showColorSeparation={true}
             />
-            <CardContainer
-                id="mainboard"
-                header="Mainboard"
-                cards={mainboard}
-            />
+            <CardContainer id="mainboard" header="Mainboard" cards={mainboard} />
         </>
-    )
+    );
 }
 
 export default PoolBuilder;
