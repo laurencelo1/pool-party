@@ -86,5 +86,23 @@ export const api = {
       console.error(`Error fetching cards for set ${setCode}:`, error);
       throw error;
     }
+  },
+  
+  // Search for cards
+  searchCards: async (query, set = '') => {
+    try {
+      // Build query string with optional set parameter
+      let queryString = `?query=${encodeURIComponent(query)}`;
+      if (set) {
+        queryString += `&set=${encodeURIComponent(set)}`;
+      }
+      
+      const response = await fetch(`${API_BASE_URL}/search${queryString}`);
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      console.error('Error searching for cards:', error);
+      throw error;
+    }
   }
 };

@@ -7,6 +7,7 @@ import UploadPage from './pages/UploadPage';
 import BuildPage from './pages/BuildPage';
 import SetPage from './pages/SetPage';
 import DailyPool from './pages/DailyPool';
+import SearchPage from './pages/SearchPage';
 import AboutPage from './pages/AboutPage';
 import reportWebVitals from './reportWebVitals';
 
@@ -21,6 +22,7 @@ root.render(
         <Route path="/build/:id" element={<BuildPage />} />
         <Route path="/daily" element={<DailyPool />} />
         <Route path="/set/:setCode" element={<SetPage />} />
+        <Route path="/search" element={<SearchPage />} />
         <Route path="/about" element={<AboutPage />} />
       </Routes>
     </BrowserRouter>

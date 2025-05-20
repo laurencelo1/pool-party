@@ -9,6 +9,7 @@ import Pool from "./models/pool.model.js";
 import poolRoutes from "./routes/pool.route.js";
 import dailyRoutes from "./routes/daily.route.js";
 import setRoutes from "./routes/set.route.js";
+import searchRoutes from "./routes/search.route.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -23,6 +24,7 @@ app.use(express.json());
 app.use("/pool", poolRoutes);
 app.use("/daily", dailyRoutes);
 app.use("/set", setRoutes);
+app.use("/search", searchRoutes);
 
 app.listen(PORT, HOST, () => {
     connectDB();

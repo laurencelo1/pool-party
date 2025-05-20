@@ -34,6 +34,7 @@ function Layout({ children }) {
             <li><Link to="/upload">Upload</Link></li>
             <li><Link to="/build">Build</Link></li>
             <li><Link to="/daily">Pool of the Day</Link></li>
+            <li><Link to="/search">Search Cards</Link></li>
             <li><Link to="/set/TDM">TDM Cards</Link></li>
           </ul>
         </nav>
