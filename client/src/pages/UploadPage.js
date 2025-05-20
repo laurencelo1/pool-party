@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { api } from '../services/api';
 import Layout from '../Layout';
 import { initializeCardDatabase, getCardByName, createPlaceholderCard } from '../utils/cardLookup';
+import './UploadPage.css';
 
 function UploadPage() {
     const navigate = useNavigate();

@@ -3,6 +3,9 @@ import { Link } from 'react-router-dom';
 import Layout from '../Layout';
 import './SetsPage.css';
 
+import tdmImage from '../assets/TDM.jpg';
+import fdnImage from '../assets/FDN.jpg';
+
 function SetsPage() {
     const [sets, setSets] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -16,7 +19,7 @@ function SetsPage() {
                 description: 'Return to the world of Tarkir with dragons and powerful khans.',
                 releaseDate: 'May 2024',
                 cardCount: 280,
-                image: '../assets/TDM.jpg',
+                image: tdmImage,
             },
             {
                 code: 'FDN',
@@ -24,7 +27,7 @@ function SetsPage() {
                 description: 'The base set that establishes the core mechanics and world.',
                 releaseDate: 'February 2024',
                 cardCount: 265,
-                image: '/placeholders/fdn.jpg',
+                image: fdnImage,
             },
         ];
 

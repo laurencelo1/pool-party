@@ -166,7 +166,7 @@ function SearchPage() {
                         <p className="no-results">
                             {initialQuery
                                 ? 'No results found. Try a different search term.'
-                                : 'Enter a search term to find cards.'}
+                                : 'Enter a search term to find cards. For Michael: Try "storm" in FDN to test the search with a set.'}
                         </p>
                     )}
 

@@ -1,4 +1,3 @@
-// client/src/pages/AboutPage.js
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Layout from '../Layout';
@@ -27,6 +26,8 @@ function AboutPage() {
                         <li>Save your pools to access them later</li>
                         <li>Upload card lists to quickly create pools</li>
                         <li>Check out the Pool of the Day for inspiration</li>
+                        <li>Search for cards by name or set</li>
+                        <li>View card details and images</li>
                     </ul>
 
                     <h2>How to Use</h2>
@@ -47,21 +48,16 @@ function AboutPage() {
                             <strong>Share Pool:</strong> Copy the URL to share your pool with
                             friends.
                         </li>
+                        <li>
+                            <strong>Explore:</strong> Check out the Pool of the Day for daily
+                            inspiration.
+                        </li>
+                        <li>
+                            <strong>Search:</strong> Use the search feature to find specific cards
+                            or sets.
+                        </li>
                     </ol>
-
-                    <h2>Contact</h2>
-                    <p>
-                        Have suggestions or found a bug? Please reach out to us at
-                        <a href="mailto:contact@poolparty.example.com">
-                            contact@poolparty.example.com
-                        </a>
-                        .
-                    </p>
                 </section>
-
-                <div className="navigation">
-                    <Link to="/">Return to Home</Link>
-                </div>
             </div>
         </Layout>
     );

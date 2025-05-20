@@ -1,0 +1,92 @@
+.upload-page {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.upload-page h1 {
+    color: #304a4d;
+    margin-bottom: 20px;
+}
+
+.error {
+    color: #e74c3c;
+    background-color: #fadbd8;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+.instructions {
+    background-color: #f5f5f5;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.instructions p {
+    margin: 0 0 10px 0;
+}
+
+.instructions pre {
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 4px;
+    border-left: 3px solid #304a4d;
+}
+
+form {
+    margin-top: 20px;
+}
+
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #ddd;
+    border-radius: 4px;
+    font-family: monospace;
+    margin-bottom: 15px;
+    resize: vertical;
+}
+
+select {
+    padding: 10px;
+    border: 2px solid #ddd;
+    border-radius: 4px;
+    margin-right: 10px;
+    background-color: white;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #304a4d;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #1e3032;
+}
+
+button:disabled {
+    background-color: #7c9ca0;
+    cursor: not-allowed;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    textarea {
+        height: 300px;
+    }
+
+    select,
+    button {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}
